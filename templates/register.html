@@ -5,11 +5,8 @@
     <br>
     <div class="row">
       <div class="col-md-6 ">
-        {% import 'bootstrap/wtf.html' as wtf %}
-     <form method="POST">
-         {{ form.csrf_token() }}
-            {{ wtf.quick_form(form) }}
-     </form>
+          {% import 'bootstrap/wtf.html' as wtf %}
+          {{ wtf.quick_form(form) }}
       </div>
     </div>
 {% endblock%}
