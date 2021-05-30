@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block app_content %}
+    <h1>Register Now</h1>
+    <br>
+    <div class="row">
+      <div class="col-md-6 ">
+        {% import 'bootstrap/wtf.html' as wtf %}
+     <form method="POST">
+         {{ form.csrf_token() }}
+            {{ wtf.quick_form(form) }}
+     </form>
+      </div>
+    </div>
+{% endblock%}
