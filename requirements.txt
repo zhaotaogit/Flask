@@ -3,3 +3,4 @@ flask_bootstrap
 flask-sqlalchemy
 flask-wtf
 wtforms
+flask-bcrypt
