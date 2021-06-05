@@ -8,11 +8,16 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="{% if request.endpoint == 'index' %}active{% endif %}"><a href="{{ url_for("index") }}">Home</a></li>
-        <li><a href="#">Link</a></li>
+
+          <li class="{% if request.endpoint == 'index' %}active{% endif %}"><a href="{{ url_for("index") }}">主页</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li class="{% if request.endpoint == 'register' %}active{% endif %}"><a href="{{ url_for("register") }}">Register</a></li>
+        {% if not current_user.is_authenticated %}
+          <li class="{% if request.endpoint == 'login' %}active{% endif %}"><a href="{{ url_for("login") }}">登录</a></li>
+          <li class="{% if request.endpoint == 'register' %}active{% endif %}"><a href="{{ url_for("register") }}">注册</a></li>
+        {% else %}
+          <li class="{% if request.endpoint == 'logout' %}active{% endif %}"><a href="{{ url_for("logout") }}">退出登录</a></li>
+        {% endif %}
       </ul>
     </div>
   </div>
